@@ -8,7 +8,7 @@
 ## 📋 Quick Overview
 
 ResQLink AI bridges the gap between emergency detection and rapid response. It combines:
-- **Manual SOS triggering** via Android app (long-press 3 seconds)
+- **Manual SOS triggering** via Android app (long-press 3 seconds) or sos push button on band
 - **Automatic fall detection** via wearable band (ML-powered accelerometer analysis)
 - **Multi-channel notifications** (SMS, real-time database, LoRa broadcasting)
 - **Live location tracking** with Google Maps integration
