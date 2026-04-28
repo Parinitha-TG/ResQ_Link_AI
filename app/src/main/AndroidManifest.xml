@@ -28,6 +28,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ResQLinkAI">
 
+        <!-- 🗺️ Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAP34T1LO6aW7WqesFqLmjnYPQdcKJlREk"/>
+
         <!-- 🔴 MAIN SCREEN -->
         <activity
             android:name=".MainActivity"
@@ -39,6 +44,11 @@
             </intent-filter>
 
         </activity>
+
+        <!-- 🚨 PRE-ALERT SCREEN (Countdown to cancel) -->
+        <activity
+            android:name=".PreAlertActivity"
+            android:exported="false"/>
 
         <!-- 🚨 ALERT SCREEN -->
         <activity

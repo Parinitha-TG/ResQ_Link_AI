@@ -23,9 +23,6 @@ public class PreAlertActivity extends AppCompatActivity {
         countdown = findViewById(R.id.countdown);
         cancelBtn = findViewById(R.id.cancelBtn);
 
-        // Safety check
-        if (countdown == null || cancelBtn == null) return;
-
         // Countdown Timer
         timer = new CountDownTimer(5000, 1000) {
 
@@ -39,21 +36,22 @@ public class PreAlertActivity extends AppCompatActivity {
             public void onFinish() {
                 countdown.setText("0");
 
-                // 🔥 Move to Alert Screen
+                // 🔥 Move to Alert Screen with data
                 Intent intent = new Intent(PreAlertActivity.this, AlertActivity.class);
+                intent.putExtra("type", getIntent().getStringExtra("type"));
+                intent.putExtra("lat", getIntent().getDoubleExtra("lat", 0.0));
+                intent.putExtra("lon", getIntent().getDoubleExtra("lon", 0.0));
+                
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-
                 finish();
             }
         };
 
         timer.start();
 
-        // Cancel Button
         cancelBtn.setOnClickListener(v -> {
-            if (timer != null) {
-                timer.cancel();
-            }
+            if (timer != null) timer.cancel();
             finish();
         });
     }
@@ -61,10 +59,6 @@ public class PreAlertActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        // Prevent memory leak
-        if (timer != null) {
-            timer.cancel();
-        }
+        if (timer != null) timer.cancel();
     }
 }

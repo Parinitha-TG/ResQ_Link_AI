@@ -1,81 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEFF1">
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:padding="16dp">
+    android:background="@color/black"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D32F2F"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp">
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="🚨 EMERGENCY ALERT"
-          android:textColor="#FFFFFF"
-          android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emergency Dashboard"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
 
-      <TextView
-          android:id="@+id/typeText"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Detecting..."
-          android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert Triggered"
+            android:textColor="@color/emergency_red"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp"/>
 
-      <TextView
-          android:id="@+id/locationText"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Location: Loading..."
-          android:textColor="#FFFFFF"/>
+        <!-- 📍 Live Map Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="16dp"
+            android:layout_marginBottom="24dp">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Family Contacts -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAMILY CONTACTS"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Mom Card -->
+        <LinearLayout
+            android:id="@+id/momBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg_mom"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Call MOM"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <!-- Dad Card -->
+        <LinearLayout
+            android:id="@+id/dadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg_dad"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Call DAD"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <!-- Sister Card -->
+        <LinearLayout
+            android:id="@+id/sisterBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg_sister"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Call SISTER"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <!-- Emergency Services -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMERGENCY SERVICES"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/policeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg_police"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Local Police (100)"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ambulanceBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg_ambulance"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_call"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Ambulance / EMS (102)"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Status Bottom -->
+        <TextView
+            android:id="@+id/countdownText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Alert Sent. SOS Messages active."
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:backgroundTint="@color/emergency_red"
+            android:text="I AM SAFE NOW"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/locationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Waiting for GPS..."
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"/>
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/callBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CALL"/>
-
-    <Button
-        android:id="@+id/mapBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OPEN MAP"/>
-
-    <TextView
-        android:id="@+id/contactText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alert Sent To:"/>
-
-    <TextView
-        android:id="@+id/countdownText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Waiting..."
-        android:gravity="center"/>
-
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CANCEL ALERT"/>
-
-    <Button
-        android:id="@+id/statusBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="STATUS: WAITING..."/>
-
-  </LinearLayout>
-
 </ScrollView>
