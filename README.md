@@ -1,6 +1,7 @@
 # 🚨 ResQLink AI - Smart Emergency Response System
 
 **A comprehensive IoT + Mobile emergency response platform that automatically alerts loved ones and emergency services with real-time GPS coordinates during critical situations.**
+<img width="2671" height="1550" alt="image" src="https://github.com/user-attachments/assets/413f6690-20b8-48e2-91a3-14c4c0a1fc29" />
 
 ---
 
